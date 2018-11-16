@@ -20,7 +20,18 @@ namespace nLove_inclass10
 
         public int Miles {
             get { return _miles; }
-            set { _miles = value; }
+            set {
+                if (value<0)
+                {
+                    NegativeMilesException nme = new NegativeMilesException();// create an exception -which calls constructor wth the message
+                    throw (nme); // "throw" is used after the exception object was created - with "new"
+                }
+                else
+                {
+                    _miles = value;
+                }
+
+            }
         }
 
         public int Gallons {

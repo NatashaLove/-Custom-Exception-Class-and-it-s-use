@@ -21,15 +21,33 @@ namespace nLove_inclass10
                     t.Gallons = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("You got about {0} miles per gallon.", t.MPG);
                 }
+
+                catch (NegativeMilesException ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
                 catch (DivideByZeroException ex)
                 {
 
                     Console.WriteLine("Can't divide by zero!");
+                    Console.WriteLine("");
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("");
+                    Console.WriteLine(ex.StackTrace);
+
                 }
                 catch (FormatException ex)
                 {
 
                     Console.WriteLine("Not a valid number!");
+                    Console.WriteLine("");
+                    // Console.WriteLine(ex.HResult.ToString("X"));// X converts the error number to a hexadecimal number – шестнадцатеричное число- of error to look for 
+                    Console.WriteLine("");
+                    Console.WriteLine(ex.ToString());
+
+
                 }
 
                 // general Exception should be below all specific!
