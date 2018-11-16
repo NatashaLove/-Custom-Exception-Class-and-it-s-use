@@ -21,11 +21,24 @@ namespace nLove_inclass10
                     t.Gallons = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("You got about {0} miles per gallon.", t.MPG);
                 }
-                catch (Exception ex)
+                catch (DivideByZeroException ex)
                 {
 
                     Console.WriteLine("Can't divide by zero!");
                 }
+                catch (FormatException ex)
+                {
+
+                    Console.WriteLine("Not a valid number!");
+                }
+
+                // general Exception should be below all specific!
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine("Error!");
+                }
+
                 finally
                 {
                     Console.WriteLine("Thanks for playing!");
@@ -33,6 +46,8 @@ namespace nLove_inclass10
 
                
                 Console.Write("Try again?");
+
+                //anything, but n/N will continue the  loop
                 if (Console.ReadLine().ToUpper() == "N")
                 {
                     break;
